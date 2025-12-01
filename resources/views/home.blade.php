@@ -25,8 +25,7 @@
             <div class="col-md-12 featured-top">
                 <div class="row no-gutters">
                     <div class="col-md-4 d-flex align-items-center">
-                        <form action="{{ route('booking.store') }}" method="POST" class="request-form ftco-animate bg-primary p-4" id="bookingForm">
-                            @csrf
+                        <form action="#" class="request-form ftco-animate bg-primary p-4" id="bookingForm">
 
                             <h2 class="mb-4">Make Your Trip</h2>
 
@@ -35,13 +34,13 @@
                                 <!-- Pickup Type -->
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <label class="label d-block">Pick-up Type <span class="text-danger">*</span></label>
+                                        <label class="label d-block">Pick-up Type</label>
                                         <div class="form-check form-check-inline text-white">
-                                            <input class="form-check-input" type="radio" name="pickup_type" id="pickup_door" value="door" checked required>
+                                            <input class="form-check-input" type="radio" name="pickup_type" id="pickup_door" value="door" checked>
                                             <label class="form-check-label" for="pickup_door">Door</label>
                                         </div>
                                         <div class="form-check form-check-inline text-white">
-                                            <input class="form-check-input" type="radio" name="pickup_type" id="pickup_office" value="office" required>
+                                            <input class="form-check-input" type="radio" name="pickup_type" id="pickup_office" value="office">
                                             <label class="form-check-label" for="pickup_office">Office</label>
                                         </div>
                                     </div>
@@ -50,9 +49,9 @@
                                 <!-- Delivery Type -->
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <label class="label d-block text-white">Delivery Type <span class="text-danger">*</span></label>
+                                        <label class="label d-block text-white">Delivery Type</label>
                                         <div class="d-flex align-items-center">
-                                            <input type="radio" name="delivery_type" id="delivery_door" value="door" checked class="mr-2" required>
+                                            <input type="radio" name="delivery_type" id="delivery_door" value="door" checked class="mr-2">
                                             <label for="delivery_door" class="mb-0 text-white">Door Collection</label>
                                         </div>
                                     </div>
@@ -65,21 +64,21 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="label">Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Name" required>
+                                        <label class="label">Name</label>
+                                        <input type="text" class="form-control" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="label">Phone <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Phone" required>
+                                        <label class="label">Phone</label>
+                                        <input type="text" class="form-control" placeholder="Phone">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group mb-4">
-                                <label class="label">Address <span class="text-danger">*</span></label>
-                                <input type="text" id="pickup_address" class="form-control" autocomplete="off" required>
+                                <label class="label">Address</label>
+                                <input type="text" id="pickup_address" class="form-control" autocomplete="off">
                                 <div id="pickup_suggestions" class="list-group position-absolute w-100" style="z-index: 9999;"></div>
                             </div>
 
@@ -89,19 +88,21 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="label">Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Name" required>
+                                        <label class="label">Name</label>
+                                        <input type="text" class="form-control" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="label">Phone <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Phone" required>
+                                        <label class="label">Phone</label>
+                                        <input type="text" class="form-control" placeholder="Phone">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group mb-4">
+                                <label class="label">Address</label>
+                                <input type="text" id="drop_address" class="form-control" autocomplete="off">
                                 <label class="label">Address <span class="text-danger">*</span></label>
                                 <input type="text" id="drop_address" class="form-control" autocomplete="off" required>
                                 <div id="drop_suggestions" class="list-group position-absolute w-100" style="z-index: 9999;"></div>
@@ -110,6 +111,12 @@
                             <!-- Date & Time -->
                             <div class="d-flex">
                                 <div class="form-group mr-2">
+                                    <label class="label">Pick-up date</label>
+                                    <input type="text" class="form-control" id="pick_date">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Pick-up time</label>
+                                    <input type="text" class="form-control" id="time_pick">
                                     <label class="label">Pick-up date <span class="text-danger">*</span></label>
                                     <input type="date" class="form-control" id="pick_date" name="pick_date" required>
                                 </div>
@@ -154,6 +161,30 @@
 
             <div class="modal-body">
 
+                    <ul>
+                        <li>All goods are accepted for transportation strictly at the owner’s risk.</li>
+                        <li>The company shall not be liable for any damage, breakage, leakage, theft, pilferage, delay, or loss arising due to accidents, handling, natural calamities, or improper packing by the consignor.</li>
+                        <li>The consignor must disclose fragile, hazardous, high-value, or perishable items before booking. Failure to declare may void any claim.</li>
+                        <li>The company does not provide insurance unless requested by the consignor in writing.</li>
+                        <li>Delivery time mentioned is only an estimate, and may vary due to traffic, weather, or operational reasons.</li>
+                        <li>Any complaints or claims must be reported within 24 hours of delivery.</li>
+                    </ul>
+
+                    <hr>
+
+                    <ul>
+                        <li>எல்லா பொருள்களும் உரிமையாளரின் ஆபத்தில் மட்டுமே ஏற்றுக்கொள்ளப்படும்.</li>
+                        <li>விபத்து, கையாளுதல், இயற்கை பேரழிவு, அல்லது அனுப்புநரின் தவறான பேக்கிங் காரணமாக ஏற்படும் சேதம், உடைப்பு, சிதைவு, திருட்டு, பறிப்பு, தாமதம் முதலியவற்றிற்குப் நிறுவனம் எந்த வகையிலும் பொறுப்பல்ல.</li>
+                        <li>மெத்தையானவை, ஆபத்தானவை, அதிக மதிப்புள்ளவை அல்லது விரைவில் கெடுபவை போன்ற பொருட்கள் முன்பே அறிவிக்கப்பட வேண்டும். அறிவிக்கத் தவறினால் எந்தவொரு கோரிக்கையும் செல்லாது.</li>
+                        <li>அனுப்புநர் எழுத்து மூலம் கோரினால் மட்டுமே காப்பீடு வழங்கப்படும்.</li>
+                        <li>குறிப்பிட்ட டெலிவரி நேரம் கணிப்பாகும்; போக்குவரத்து, காலநிலை அல்லது செயல்பாட்டு காரணங்களால் மாறலாம்.</li>
+                        <li>எந்தவொரு புகார் அல்லது கோரிக்கையும் டெலிவரியின் 24 மணி நேரத்திற்குள் அறிவிக்கப்பட வேண்டும்.</li>
+                    </ul>
+
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="agreeCheckbox">
+                    <label class="form-check-label">I agree to the terms.</label>
+                </div>
                 <ul>
                     <li>All goods are accepted for transportation strictly at the owner’s risk.</li>
                     <li>The company shall not be liable for any damage, breakage, leakage, theft, pilferage, delay, or loss arising due to accidents, handling, natural calamities, or improper packing by the consignor.</li>
@@ -218,6 +249,49 @@
 
 <!-- PositionStack Autocomplete Script -->
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    function setupAutocomplete(inputId, boxId) {
+        const input = document.getElementById(inputId);
+        const box = document.getElementById(boxId);
+
+        input.addEventListener("keyup", function() {
+            let query = input.value.trim();
+
+            if (query.length < 2) {
+                box.innerHTML = "";
+                return;
+            }
+
+            fetch(`https://api.positionstack.com/v1/forward?access_key=6b4029a7bd27c2ca845412b278f64487&query=${query}, Theni&limit=5`)
+                .then(res => res.json())
+                .then(data => {
+                    box.innerHTML = "";
+
+                    if (!data.data) return;
+
+                    data.data.forEach(item => {
+                        if (item.label) {
+                            let option = document.createElement("a");
+                            option.classList.add("list-group-item", "list-group-item-action");
+                            option.textContent = item.label;
+
+                            option.onclick = function() {
+                                input.value = item.label;
+                                box.innerHTML = "";
+                            };
+
+                            box.appendChild(option);
+                        }
+                    });
+                })
+                .catch(error => console.log(error));
+        });
+    }
+
+    setupAutocomplete("pickup_address", "pickup_suggestions");
+    setupAutocomplete("drop_address", "drop_suggestions");
+});
     document.addEventListener("DOMContentLoaded", function() {
 
         function setupAutocomplete(inputId, boxId) {
